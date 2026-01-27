@@ -1,0 +1,156 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box; 
+    font-family: Arial,sans-serif;
+}
+
+.container{
+    display: flex;
+    height:100vh;
+}
+/* Left section */
+.left{
+    width:80%;
+    background:linear-gradient(rgba(0,0,0,.6), rgba(0,0,0,.7)),
+    
+    url(d0b974a2-b688-49aa-a2a3-a1b5c5fce1ab.jpeg);
+    background-size:cover;
+    background-position: center;
+    color : white;
+    padding:80px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.left-logo{
+    top: 30px;
+    left: 40px;
+    
+    position: absolute;
+}
+.left-logo img{
+    width: 40px;
+    height: auto;
+    object-fit: contain;
+    
+}
+
+.left h1{
+    font-size:32px;
+    margin-bottom:20px;
+    max-width: 600px;
+    
+}
+
+.left p{
+    font-size: 18px;
+    max-width: 500px;
+    
+}
+
+.footer{
+    position: absolute;
+    bottom:20px;
+    font-size: 14px;
+    
+}
+
+/* Right section */
+.right{
+    width:35%;
+    padding:60px 40px;
+    background-color:#f4f6f8;
+}
+.right .logo{
+    display: block;
+    margin: 0 auto 20px auto;
+    width: 100px;
+    height: auto;
+    object-fit: contain;
+}
+
+.right h2{
+    margin-bottom: 20px;
+}
+.right input,
+.right select{
+    width: 100%;
+    padding: 10px;
+    margin-bottom:15px;
+    border:1px solid #ccc;
+}
+
+.forget{
+    display: block;
+    margin-bottom: 15px;
+    color: blue;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.Sign-in{
+    width: 100%;
+    padding: 10px;
+    background-color: rgb(87, 87, 87);
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+.Sign-in:hover{
+    background-color: rgb(255, 251, 3);
+    transform: translateX(-2px);
+    box-shadow: 0 5px 14px rgba(0,0,0,0.2);
+}
+.google-btn{
+    width: 100%;
+    padding: 10px;
+    background-color: white;
+    color: rgba(188, 27, 27, 0.766);
+    border: 1px solid #ccc;
+    cursor: pointer;
+    margin-bottom:15px;
+}
+.google-btn:hover{
+    background-color: #0543ff;
+    color: rgb(101, 101, 101);
+}
+.keycloak{
+    font-size: 14px;
+    color: blue;
+    margin-bottom: 10px;
+}
+
+.role-btns{
+    display: flex;
+    gap:10px;
+}
+
+.role-btns button{
+    flex:1;
+    padding: 10px;
+    border:none;
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+}
+button{
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.student-Login,
+.staff-Login{
+    background-color: blue;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.Student-Login:hover,
+.Staff-Login:hover{
+    background-color: darkblue;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 14px rgba(0,0,0,0.2);
+}
