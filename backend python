@@ -1,0 +1,13 @@
+import mysql.connector
+
+conn = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="py_@pytho",
+    database="result_system"
+)
+
+if conn.is_connected():
+    print("✅ Connected to MySQL successfully")
+
+conn.close()
