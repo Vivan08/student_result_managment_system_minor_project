@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Authenticator Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h2>Welcome to NEXGRADE</h2>
+
+    <div class="card">
+      <div class="form">
+      <input type="text" value="9999****" readonly>
+      <button class="restart">Restart Login</button>
+      <p>Enter code from your authenticator app</p>
+      <input type="text" id="otp" placeholder="One-time code">
+      <button class="signin" onclick="verifyOTP()">SIGN IN</button>
+      <p id="msg"></p>
+    </div>
+  </div>
+
+  <script src="minor.js"></script>
+</body>
+</html>
