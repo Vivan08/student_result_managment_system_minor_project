@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+<style>
+.hidden {
+  display: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="login-wrapper">
+
+    <div class="login-bg"></div>
+
+    <!-- LOGIN SECTION -->
+    <div class="login-content" id="loginBox">
+        <h2>Sign in to your account</h2>
+
+        <form method="POST" action="/login">
+          <input type="text" name="username" placeholder="Mobile No. or Email" required>
+<input type="password" name="password" placeholder="Password" required>
+<div class="remember">
+  <label>
+    <input type="checkbox"> Remember me
+  </label>
+</div>
+<button type="submit" class="btn primary">SIGN IN</button>
+
+
+    </form>
+
+    <!-- OTP SECTION -->
+    <div class="login-content hidden" id="otpBox">
+        <h2>Welcome to NEXGRADE</h2>
+
+        <p>Enter code from your authenticator app</p>
+
+        <input type="text" id="otp" placeholder="One-time code">
+
+        <button class="btn primary" onclick="verifyOTP()">VERIFY & LOGIN</button>
+
+        <p id="msg"></p>
+    </div>
+
+</div>
+
+<script>
+function openOTP() {
+  const input = document.querySelector("#loginBox input").value.trim();
+  const msgBox = document.getElementById("msg");
+
+  const validMobile = "9305156067";
+  const validEmail = "shubhamchaudhary9021@gmail.com";
+
+  if (input === validMobile || input === validEmail) {
+    document.getElementById("loginBox").classList.add("hidden");
+    document.getElementById("otpBox").classList.remove("hidden");
+
+    if (msgBox) msgBox.innerText = "";
+  } else {
+    alert("❌ Invalid Mobile Number or Email");
+  }
+}
+
+function verifyOTP() {
+  const correctOTP = "123456";
+  const userOTP = document.getElementById("otp").value;
+
+  if (userOTP === correctOTP) {
+    document.getElementById("msg").style.color = "green";
+    document.getElementById("msg").innerText = "Login Successful ✅";
+
+    setTimeout(() => {
+      window.location.href = "/result";
+    }, 800);
+
+  } else {
+    document.getElementById("msg").style.color = "red";
+    document.getElementById("msg").innerText = "Invalid OTP ❌";
+  }
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Subjects — NexGrade</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+<div class="container">
+
+  <!--sidebar-->
+  <div class="sidebar">
+    <h2 class="logo">NexGrade</h2>
+    <nav aria-label="Main navigation">
+      <ul>
+        <li><a href="/student">Students</a></li>
+        <li class="active"><a href="/subjects">Subjects</a></li>
+        <li><a href="/marks">Marks Entry</a></li>
+        <li><a href="/result">Results</a></li>
+      </ul>
+    </nav>
+  </div>
+
+  <!--main content-->
+  <main class="main">
+
+    <!--header-->
+    <header class="header">
+      <h1>Subjects</h1>
+      <button type="button" class="logout-button">Logout</button>
+    </header>
+
+    <!--card-->
+    <section class="card">
+
+      <div class="card-header">
+        <h2>Manage Subjects</h2>
+        <button type="button" class="add-button">Add New Subject</button>
+      </div>
+
+      <!--search-->
+      <input
+        type="text"
+        id="search-input"
+        class="search"
+        placeholder="Search Subject"
+      >
+
+      <!--table-->
+      <div class="table" role="table">
+
+        <!--heading-->
+        <div class="row header-row" role="row">
+          <div role="columnheader">ID</div>
+          <div role="columnheader">Name</div>
+          <div role="columnheader">Code</div>
+          <div role="columnheader">Actions</div>
+        </div>
+
+        <!--dynamic data-->
+        <div id="table-body" role="rowgroup"></div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+</div>
+
+</body>
+</html>

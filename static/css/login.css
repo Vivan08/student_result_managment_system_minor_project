@@ -1,0 +1,130 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  height: 100vh;
+  background-color: #f8f9f9;
+
+  background-image:
+    linear-gradient(#aff9f5 1px, transparent 1px),
+    linear-gradient(to right, #b3fffb 1px, transparent 1px);
+  background-size: 30px 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main Box */
+.login-wrapper {
+  position: relative;
+  background: #CBF1F5;
+  padding: 25px;
+  width: 420px;
+  border-radius: 10px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* Background Layer */
+.login-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+/* Content */
+.login-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+}
+
+.login-content h2 {
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* INPUT FIX */
+.login-content input[type="text"] {
+  padding: 12px;
+  border-radius: 999px;
+  border: none;
+  margin-bottom: 15px;
+  width: 100%;
+}
+.login-content input[type="password"] {
+  padding: 12px;
+  border-radius: 999px;
+  border: none;
+  margin-bottom: 15px;
+  width: 100%;
+}
+
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border-radius: 999px;
+  border: none;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+/* Remember */
+.remember {
+  font-size: 13px;
+  margin-bottom: 15px;
+}
+
+/* Buttons */
+.btn {
+  padding: 12px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 10px;
+  width: 100%;
+  transition: 0.3s ease;
+}
+
+.primary {
+  background: hsl(183, 49%, 63%);
+  color: white;
+}
+
+.secondary {
+  background: hsl(183, 49%, 63%);
+  color: white;
+}
+
+/* Hover Effects */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(0,0,0,0.15);
+}
+.input-field {
+  width: 100%;
+  padding: 12px;
+  border-radius: 25px;
+  border: none;
+  margin: 10px 0;
+  outline: none;
+}
+.remember {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+
+/* Responsive */
+@media(max-width:500px){
+  .login-wrapper{
+    width: 90%;
+  }
+}

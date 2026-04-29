@@ -1,0 +1,211 @@
+:root {
+    --primary: #1a237e;     /* Deep Navy */
+    --accent: #3b82f6;      /* Bright Blue */
+    --success: #10b981;     /* Emerald Green */
+    --danger: #ef4444;      /* Soft Red */
+    --bg-light: #f8fafc;    /* Light Gray Background */
+    --white: #ffffff;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+}
+
+body {
+    background-color: var(--bg-light);
+    color: #334155;
+}
+
+.app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header Styles */
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #e2e8f0;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--primary);
+}
+
+.logo span { font-weight: 300; }
+
+.logout-btn {
+    padding: 8px 16px;
+    border: 1px solid #e2e8f0;
+    background: white;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.logout-btn:hover { background: #fee2e2; color: var(--danger); }
+
+/* Controls Row */
+.controls-row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.custom-select {
+    padding: 10px 15px;
+    border-radius: 8px;
+    border: 1px solid #cbd5e1;
+    min-width: 180px;
+    outline: none;
+}
+
+.add-btn {
+    background-color: var(--accent);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+    transition: var(--transition);
+}
+
+.add-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(59, 130, 246, 0.4);
+}
+
+/* Table Card */
+.table-card {
+    background: var(--white);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    overflow: hidden;
+    animation: slideUp 0.5s ease-out;
+}
+
+.table-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #fafbfc;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.table-header h2 span { color: var(--accent); }
+
+.search-box {
+    position: relative;
+    width: 250px;
+}
+
+.search-box i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94a3b8;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 8px 8px 8px 35px;
+    border-radius: 6px;
+    border: 1px solid #e2e8f0;
+}
+
+/* Table Design */
+.table-responsive { overflow-x: auto; }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    padding: 15px 20px;
+    background: #f8fafc;
+    color: #64748b;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+td {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f1f5f9;
+}
+
+.marks-input {
+    width: 70px;
+    padding: 5px 10px;
+    border-radius: 4px;
+    border: 1px solid #cbd5e1;
+    text-align: center;
+}
+
+.marks-input:focus { border-color: var(--accent); outline: none; }
+
+.actions button {
+    padding: 6px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.edit-btn { background: var(--success); color: white; margin-right: 5px; }
+.delete-btn { background: var(--danger); color: white; }
+
+.actions button:hover { opacity: 0.8; }
+
+/* Animations */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .controls-row, .table-header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    .search-box { width: 100%; }
+    .table-card { border-radius: 0; }
+}
+
+.add-btn:active, .edit-btn:active, .delete-btn:active {
+    transform: scale(0.95);
+}
+
+.delete-btn {
+    transition: background 0.2s, transform 0.1s;
+}
+
+.delete-btn:hover {
+    background-color: #b91c1c; /* Darker red on hover */
+}
+
+/* Smooth entrance for new rows */
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}

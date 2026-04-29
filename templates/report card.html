@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Modern Report Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+    <div class="app-container">
+        <header class="header">
+            <button class="back-btn" onclick="history.back()">
+                &#8592;
+            </button>
+            <h1>Report Card</h1>
+        </header>
+
+        <main class="content">
+            <h2 class="section-title">Grade Card List</h2>
+
+            <div class="card">
+                <div class="input-group">
+                    <label for="semester">Select Semester <span class="required-star">*</span></label>
+                    <select id="semester">
+                        <option value="" disabled selected>Choose Semester</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="session">Select Session <span class="required-star">*</span></label>
+                    <select id="session">
+                        <option value="consolidated">Consolidated</option>
+                        <option value="regular">Regular</option>
+                    </select>
+                </div>
+
+                <button id="submitBtn" class="submit-btn">SUBMIT</button>
+            </div>
+
+            <div id="statusMessage" class="status-msg hidden">
+                <div class="status-bar"></div>
+                <p>No Result Published Yet</p>
+            </div>
+        </main>
+
+        <nav class="bottom-nav">
+            <div class="nav-item active">
+                <i class="fa-solid fa-house"></i>
+                <span>Home</span>
+            </div>
+            <div class="nav-item scan-btn">
+                <div class="scan-circle">
+                    <i class="fa-solid fa-qrcode"></i>
+                </div>
+                <span>Scan QR</span>
+            </div>
+            <div class="nav-item">
+                <i class="fa-solid fa-bell"></i>
+                <span>Notifications</span>
+            </div>
+        </nav>
+    </div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,276 @@
+:root {
+    --primary-blue: #4fa3ed;
+    --dark-blue: #3d91da;
+    --bg-light: #f4f7f9;
+    --white: #ffffff;
+    --error-red: #ff4d4d;
+    --error-bg: #fff0f0;
+    --text-main: #333;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Roboto, sans-serif;
+}
+
+body {
+    background-color: #e0eafc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.left::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+
+    background: url("{{ url_for('static', filename='images/NexPhoto.jpeg') }}") center/cover no-repeat;
+
+    opacity: 0.3;   /* 🔥 transparency control */
+    z-index: 0;
+}
+.required-star {
+    color: #ed4337; 
+    font-weight: bold;
+    margin-left: 2px;
+    font-size: 1.1rem;
+}
+
+.header {
+    display: flex;
+    align-items: center; 
+    gap: 15px;           
+    background: #4fa3ed; 
+    padding: 20px;
+    color: white;
+}
+
+.back-btn {
+    background: none;    
+    border: none;        
+    color: white;        
+    font-size: 28px;     
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    transition: opacity 0.2s;
+}
+
+.back-btn:active {
+    opacity: 0.5;        
+}
+
+/* App Container (Desktop vs Mobile) */
+
+.app-container {
+    width: 100%;
+    max-width: 450px; 
+    height: 100vh;    
+    display: flex;
+    flex-direction: column;
+    background-color: #ffffff; 
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.header {
+    background-color: #4fa3ed;
+    padding: 50px 20px 90px 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.content {
+    flex: 1;               
+    padding: 0 20px;
+    margin-top: -50px;      
+    
+}
+/* Desktop Expansion */
+@media (min-width: 768px) {
+    .app-container {
+        max-width: 800px;
+        border-radius: 20px;
+    }
+}
+
+/* Header with Gradient */
+.header {
+    background: linear-gradient(135deg, var(--primary-blue), var(--dark-blue));
+    padding: 40px 20px 80px 20px;
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.back-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+/* Main Content Area */
+.content {
+    padding: 20px;
+    margin-top: -50px; /* Pulls card up into the blue area */
+    flex-grow: 1;
+}
+
+.section-title {
+    color: white;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+}
+
+/* Glassmorphism Card */
+.card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    animation: slideUp 0.6s ease-out;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+    appearance: none;
+    background: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat right 10px center/15px;
+}
+
+select:focus {
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(79, 163, 237, 0.2);
+}
+
+.submit-btn {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--primary-blue);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.submit-btn:hover {
+    background-color: var(--dark-blue);
+    transform: translateY(-2px);
+}
+
+.submit-btn:active {
+    transform: scale(0.98);
+}
+
+/* Error/Status Message */
+.status-msg {
+    margin-top: 25px;
+    background-color: var(--error-bg);
+    color: var(--error-red);
+    padding: 15px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    animation: fadeIn 0.5s ease-in;
+}
+
+.hidden { display: none; }
+
+.status-bar {
+    width: 5px;
+    height: 30px;
+    background-color: var(--error-red);
+    border-radius: 10px;
+}
+
+/* Bottom Navigation */
+.bottom-nav {
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0 25px 0;
+    box-shadow: 0 -5px 20px rgba(0,0,0,0.05);
+    border-radius: 25px 25px 0 0;
+}
+
+.nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #aaa;
+    font-size: 0.75rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.nav-item.active { color: var(--primary-blue); }
+
+.scan-circle {
+    background: var(--primary-blue);
+    color: white;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-top: -35px;
+    border: 5px solid var(--bg-light);
+    box-shadow: 0 5px 15px rgba(79, 163, 237, 0.4);
+    animation: pulse 2s infinite;
+}
+
+/* Animations */
+@keyframes slideUp {
+    from { transform: translateY(30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}

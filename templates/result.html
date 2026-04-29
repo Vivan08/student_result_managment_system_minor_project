@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Report Card</title>
+
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/result.css') }}">
+
+  <style>
+    .summary {
+      margin-top: 20px;
+      padding: 15px;
+      background: #f9f9f9;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1 class="title">📊 Student Report Card</h1>
+
+  <div class="card">
+
+    <!-- FILTER FORM -->
+    <form method="POST" action="/result">
+
+  <div class="form-grid">
+
+    <div class="input-box">
+      <label>Academic Year</label>
+      <select name="year">
+        <option>2025-2026</option>
+      </select>
+    </div>
+
+    <div class="input-box">
+      <label>Class</label>
+      <select name="class">
+        <option>Sem 1</option>
+      </select>
+    </div>
+
+    <div class="input-box">
+      <label>Division</label>
+      <select name="division">
+        <option>Section A</option>
+      </select>
+    </div>
+
+    <div class="input-box">
+      <label>Exam Session</label>
+      <select name="session">
+        <option>EVEN 2025-2026</option>
+      </select>
+    </div>
+
+    <div class="input-box full">
+      <label>Exam Name</label>
+      <select name="exam">
+        <option>End Term</option>
+      </select>
+    </div>
+
+  </div>
+
+  <button type="submit" class="btn">Show Result</button>
+
+</form>
+
+    <!-- RESULT TABLE -->
+     {% if data and data|length > 0 %}
+{% endif %}
+
+{% if data is not none %}
+
+    {% if data|length > 0 %}
+        <!-- table -->
+    {% else %}
+        <p style="text-align:center; color:red;">No Result Found</p>
+    {% endif %}
+
+
+
+    <table class="result-table">
+  <thead>
+    <tr>
+      <th>Subject</th>
+      <th>Marks</th>
+      <th>Grade</th>
+    </tr>
+  </thead>
+
+  <tbody>
+
+    {% set ns = namespace(total=0) %}
+
+    {% for row in data %}
+    {% set marks = row[1] %}
+    {% set ns.total = ns.total + marks %}
+
+    <tr>
+      <td>{{ row[0] }}</td>
+      <td>{{ marks }}</td>
+      <td>
+        {% if marks >= 90 %} A+
+        {% elif marks >= 75 %} A
+        {% elif marks >= 60 %} B
+        {% elif marks >= 50 %} C
+        {% else %} F
+        {% endif %}
+      </td>
+    </tr>
+
+    
+
+    {% endfor %}
+
+  </tbody>
+</table>
+
+
+    <!-- SUMMARY -->
+    <div class="summary">
+
+      {% set percentage = (ns.total / (data|length)) %}
+
+      <p><b>Total Marks:</b> {{ ns.total }}</p>
+      <p><b>Percentage:</b> {{ "%.2f"|format(percentage) }}%</p>
+
+      <p><b>Cumulative Grade:</b>
+        {% if percentage >= 90 %} A+
+        {% elif percentage >= 75 %} A
+        {% elif percentage >= 60 %} B
+        {% elif percentage >= 50 %} C
+        {% else %} F
+        {% endif %}
+      </p>
+
+    </div>
+
+    {% endif %}
+
+  </div>
+
+</div>
+
+</body>
+</html>

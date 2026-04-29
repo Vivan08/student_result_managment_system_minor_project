@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Staff Login</title>
+
+<link rel="stylesheet" href="{{ url_for('static', filename='css/login.css') }}">
+<style>
+.hidden {
+  display: none;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="login-wrapper">
+
+    <div class="login-bg"></div>
+
+    <!-- LOGIN SECTION -->
+    <div class="login-content" id="loginBox">
+        <h2>Staff Login</h2>
+
+        <form method="POST" action="/staff-login">
+          <input type="text" name="username" placeholder="Staff Email or Mobile" required>
+          <input type="password" name="password" placeholder="Password" required>
+          <button type="submit" class="btn primary">SIGN IN</button>
+        </form>
+        <label class="remember">
+            <input type="checkbox"> Remember me
+        </label>
+
+    </div>
+
+    <!-- OTP SECTION -->
+
+</div>
+
+
+
+</body>
+</html>

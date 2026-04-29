@@ -1,0 +1,143 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+
+  /* SAME AS LOGIN PAGE */
+  background-color: #f8f9f9;
+
+  background-image:
+    linear-gradient(#aff9f5 1px, transparent 1px),
+    linear-gradient(to right, #b3fffb 1px, transparent 1px);
+
+  background-size: 30px 30px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container {
+  width: 90%;
+  max-width: 900px;
+}
+
+.title {
+  text-align: center;
+  color: rgb(5, 255, 5);
+  margin-bottom: 20px;
+  animation: fadeIn 1s ease;
+}
+
+.card {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  animation: slideUp 0.8s ease;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-box.full {
+  grid-column: span 2;
+}
+
+label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+select, input {
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  transition: 0.3s;
+}
+
+select:hover, input:hover {
+  border-color: #4facfe;
+  transform: scale(1.02);
+}
+
+.btn {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #4facfe;
+  color: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #00c6ff;
+  transform: scale(1.05);
+}
+
+.result-card {
+  margin-top: 20px;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  background: #ffe6e6;
+  color: red;
+  font-weight: bold;
+  animation: fadeIn 0.5s ease;
+}
+
+.hidden {
+  display: none;
+}
+
+.result-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.result-table th,
+.result-table td {
+  border: 1px solid #333;
+  padding: 12px;
+  text-align: center;
+}
+
+.result-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.result-table tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+@keyframes slideUp {
+  from {transform: translateY(50px); opacity: 0;}
+  to {transform: translateY(0); opacity: 1;}
+}
